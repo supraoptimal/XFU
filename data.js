@@ -889,6 +889,7 @@ const GUIDE_DATA = {
       title: "Vitamins & Supplements",
       category: "common-issues",
       tags: ["supplements", "vitamins", "calcium", "vitamin D", "collagen", "glucosamine", "chondroitin", "omega-3", "fish oil", "B12", "B6", "neurobion", "UC-II", "multivitamin", "OTC", "evidence"],
+      noBoldColon: true,
       blocks: [
         {
           type: "subsection-header",
@@ -897,9 +898,9 @@ const GUIDE_DATA = {
         {
           type: "management",
           title: "Calcium + Vitamin D",
+          evidenceLevel: "IF DEFICIENT",
+          subtitle: "e.g. Calcichew D3",
           content: [
-            { text: "Evidence level:", sub: ["IF DEFICIENT"] },
-            "e.g. Calcichew D3",
             { text: "Proposed Benefit:", sub: [
               "Calcium \u2014 primary bone mineral; Vitamin D \u2014 facilitates Ca\u00b2\u207a absorption, regulates PTH",
               "Together aim to reduce osteoporotic fracture risk"
@@ -920,9 +921,9 @@ const GUIDE_DATA = {
         {
           type: "management",
           title: "Neurobion (B1 + B6 + B12)",
+          evidenceLevel: "WEAK BEYOND DEFICIENCY",
+          subtitle: "Thiamine / Pyridoxine / Cyanocobalamin",
           content: [
-            { text: "Evidence level:", sub: ["WEAK BEYOND DEFICIENCY"] },
-            "Thiamine / Pyridoxine / Cyanocobalamin",
             { text: "Proposed Benefit:", sub: [
               "B vitamins are cofactors in nerve myelination & repair",
               "B12 deficiency \u2192 subacute combined degeneration",
@@ -943,9 +944,9 @@ const GUIDE_DATA = {
         {
           type: "management",
           title: "Vitamin B6 (Pyridoxine)",
+          evidenceLevel: "NARROW THERAPEUTIC WINDOW",
+          subtitle: "Cofactor for >100 enzymatic reactions. Active form: PLP (pyridoxal 5\u2032-phosphate)",
           content: [
-            { text: "Evidence level:", sub: ["NARROW THERAPEUTIC WINDOW"] },
-            "Cofactor for >100 enzymatic reactions. Active form: PLP (pyridoxal 5\u2032-phosphate)",
             { text: "Proposed Benefit:", sub: [
               "Essential cofactor for neurotransmitter synthesis (serotonin, noradrenaline, GABA), amino acid metabolism, myelin formation, haemoglobin synthesis [ref:30]",
               "Deficiency \u2192 peripheral neuropathy, anaemia, dermatitis, confusion, seizures",
@@ -971,9 +972,9 @@ const GUIDE_DATA = {
         {
           type: "management",
           title: "Multivitamin (Daily One Plus)",
+          evidenceLevel: "MARGINAL",
+          subtitle: "Broad-spectrum micronutrient supplement",
           content: [
-            { text: "Evidence level:", sub: ["MARGINAL"] },
-            "Broad-spectrum micronutrient supplement",
             { text: "Proposed Benefit:", sub: [
               "Prevent subclinical deficiencies in poor intake / malabsorption / chronic illness"
             ]},
@@ -996,9 +997,9 @@ const GUIDE_DATA = {
         {
           type: "management",
           title: "Glucosamine & Chondroitin",
+          evidenceLevel: "LARGELY NEGATIVE",
+          subtitle: "GAG precursors \u2022 Oral",
           content: [
-            { text: "Evidence level:", sub: ["LARGELY NEGATIVE"] },
-            "GAG precursors \u2022 Oral",
             { text: "Proposed Benefit:", sub: [
               "Glycosaminoglycan precursors in cartilage matrix",
               "Theory: oral supplementation supports cartilage repair, slows OA progression"
@@ -1019,9 +1020,9 @@ const GUIDE_DATA = {
         {
           type: "management",
           title: "Collagen Peptides",
+          evidenceLevel: "PLAUSIBLE, UNPROVEN",
+          subtitle: "Hydrolysed collagen \u2022 Oral",
           content: [
-            { text: "Evidence level:", sub: ["PLAUSIBLE, UNPROVEN"] },
-            "Hydrolysed collagen \u2022 Oral",
             { text: "Proposed Benefit:", sub: [
               "Provides glycine, proline, hydroxyproline \u2014 proposed preferential uptake by cartilage",
               "Stimulate chondrocyte collagen synthesis"
@@ -1041,9 +1042,9 @@ const GUIDE_DATA = {
         {
           type: "management",
           title: "UC-II (Undenatured Type II Collagen)",
+          evidenceLevel: "PROMISING, SMALL BASE",
+          subtitle: "40mg/day \u2022 Oral tolerance mechanism",
           content: [
-            { text: "Evidence level:", sub: ["PROMISING, SMALL BASE"] },
-            "40mg/day \u2022 Oral tolerance mechanism",
             { text: "Proposed Benefit:", sub: [
               "Distinct from hydrolysed collagen \u2014 works via oral tolerance",
               "Type II collagen epitopes presented to gut-associated lymphoid tissue (Peyer\u2019s patches)",
@@ -1065,9 +1066,9 @@ const GUIDE_DATA = {
         {
           type: "management",
           title: "Omega-3 Fish Oil (EPA/DHA)",
+          evidenceLevel: "DOSE & FORM DEPENDENT",
+          subtitle: "Standard supplements vs pharmaceutical-grade EPA",
           content: [
-            { text: "Evidence level:", sub: ["DOSE & FORM DEPENDENT"] },
-            "Standard supplements vs pharmaceutical-grade EPA",
             { text: "Proposed Benefit:", sub: [
               "EPA/DHA \u2192 resolvins & protectins that actively resolve inflammation",
               "Proposed: CV risk reduction, anti-inflammatory for joints, neuroprotection"
@@ -1087,11 +1088,10 @@ const GUIDE_DATA = {
           ]
         },
         {
-          type: "note",
+          type: "callout-box",
           title: "Bottom Line",
-          defaultOpen: true,
           content: [
-            { text: "Supplements with the clearest evidence are those correcting a documented deficiency (B12 for neuropathy, Ca\u00b2\u207a/D for deficient osteoporotic patients). Beyond deficiency correction, the evidence base thins dramatically for almost all of these. The commercial supplement industry substantially outpaces the evidence.", highlight: true }
+            "Supplements with the clearest evidence are those correcting a documented deficiency (B12 for neuropathy, Ca\u00b2\u207a/D for deficient osteoporotic patients). Beyond deficiency correction, the evidence base thins dramatically for almost all of these. The commercial supplement industry substantially outpaces the evidence."
           ]
         }
       ]

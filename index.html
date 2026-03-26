@@ -193,7 +193,7 @@
     // =========================================================================
 
     // Parse [ref:N] markers in text and render as superscript links
-    function RichText({ text, onRefClick, onNavigate }) {
+    function RichText({ text, onRefClick, onNavigate, noBoldColon }) {
       if (!text || typeof text !== 'string') return text;
       // Split on [ref:N], **bold**, and [link:id|text] markers
       const tokens = text.split(/(\[ref:\d+\]|\*\*[^*]+\*\*|\[link:[^\]]+\])/g);
@@ -225,7 +225,7 @@
       });
       // Auto-bold leading term before colon (e.g. "Goal: ..." → <strong>Goal:</strong> ...)
       // Only apply if first rendered token is a plain string starting with "Word(s):"
-      if (rendered.length > 0 && typeof rendered[0] === 'string') {
+      if (!noBoldColon && rendered.length > 0 && typeof rendered[0] === 'string') {
         const leadMatch = rendered[0].match(/^([A-Za-z\s\-\/&\(\)]+:)\s*/);
         if (leadMatch) {
           const prefix = leadMatch[1];
@@ -404,25 +404,25 @@
     }
 
     // --- Content Renderer with Reference Links ---
-    function ContentList({ items, onRefClick, onNavigate }) {
+    function ContentList({ items, onRefClick, onNavigate, noBoldColon }) {
       if (!items || !Array.isArray(items)) return null;
       return (
         <ul className="list-disc list-outside pl-4 space-y-1.5">
           {items.map((item, i) => {
             if (typeof item === 'string') {
-              return <li key={i}><RichText text={item} onRefClick={onRefClick} onNavigate={onNavigate} /></li>;
+              return <li key={i}><RichText text={item} onRefClick={onRefClick} onNavigate={onNavigate} noBoldColon={noBoldColon} /></li>;
             }
             if (item.text) {
               return (
                 <li key={i}>
                   {item.highlight ? (
-                    <span className="bg-yellow-200 px-1 rounded font-semibold"><RichText text={item.text} onRefClick={onRefClick} onNavigate={onNavigate} /></span>
+                    <span className="bg-yellow-200 px-1 rounded font-semibold"><RichText text={item.text} onRefClick={onRefClick} onNavigate={onNavigate} noBoldColon={noBoldColon} /></span>
                   ) : (
-                    <RichText text={item.text} onRefClick={onRefClick} onNavigate={onNavigate} />
+                    <RichText text={item.text} onRefClick={onRefClick} onNavigate={onNavigate} noBoldColon={noBoldColon} />
                   )}
                   {item.sub && item.sub.length > 0 && (
                     <ul className="list-disc list-outside pl-4 mt-1 space-y-1">
-                      {item.sub.map((s, j) => <li key={j}>{typeof s === 'string' ? <RichText text={s} onRefClick={onRefClick} onNavigate={onNavigate} /> : s}</li>)}
+                      {item.sub.map((s, j) => <li key={j}>{typeof s === 'string' ? <RichText text={s} onRefClick={onRefClick} onNavigate={onNavigate} noBoldColon={noBoldColon} /> : s}</li>)}
                     </ul>
                   )}
                 </li>
@@ -523,7 +523,7 @@
       );
     }
 
-    function BlockRenderer({ block, onRefClick, onNavigate }) {
+    function BlockRenderer({ block, onRefClick, onNavigate, noBoldColon }) {
       if (block.type === 'subsection-header') {
         return <SubsectionHeader title={block.title} />;
       }
@@ -631,7 +631,16 @@
 
       return (
         <CollapsibleBlock title={block.title} defaultOpen={block.defaultOpen || false}>
-          {block.content && <ContentList items={block.content} onRefClick={onRefClick} onNavigate={onNavigate} />}
+          {block.evidenceLevel && (
+            <div className="mb-3 bg-blue-50 border border-blue-200 rounded-lg px-3 py-2">
+              <span className="text-xs font-semibold text-blue-800 uppercase tracking-wide">Evidence: </span>
+              <span className="text-sm font-bold text-blue-900">{block.evidenceLevel}</span>
+            </div>
+          )}
+          {block.subtitle && (
+            <p className="text-xs text-gray-500 -mt-1 mb-2 italic">{block.subtitle}</p>
+          )}
+          {block.content && <ContentList items={block.content} onRefClick={onRefClick} onNavigate={onNavigate} noBoldColon={noBoldColon} />}
           {block.callout && (
             <div className="mt-3 bg-yellow-50 border border-yellow-300 rounded-lg px-4 py-3">
               <ul className="space-y-2">
@@ -878,7 +887,7 @@
           {section.blocks.length > 0 && (
             <div className="space-y-0">
               {section.blocks.map((block, i) => (
-                <BlockRenderer key={i} block={block} onRefClick={onRefClick} onNavigate={onNavigate} />
+                <BlockRenderer key={i} block={block} onRefClick={onRefClick} onNavigate={onNavigate} noBoldColon={section.noBoldColon} />
               ))}
             </div>
           )}
