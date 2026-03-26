@@ -70,6 +70,7 @@ const GUIDE_DATA = {
       sections: [
         "fragility-fractures",
         "pain-medication",
+        "vitamins-supplements",
         "implants",
         "mri",
         "sick-leave"
@@ -884,6 +885,219 @@ const GUIDE_DATA = {
     },
 
     {
+      id: "vitamins-supplements",
+      title: "Vitamins & Supplements",
+      category: "common-issues",
+      tags: ["supplements", "vitamins", "calcium", "vitamin D", "collagen", "glucosamine", "chondroitin", "omega-3", "fish oil", "B12", "B6", "neurobion", "UC-II", "multivitamin", "OTC", "evidence"],
+      blocks: [
+        {
+          type: "subsection-header",
+          title: "Available in HA Formulary"
+        },
+        {
+          type: "management",
+          title: "Calcium + Vitamin D",
+          content: [
+            { text: "Evidence level:", sub: ["IF DEFICIENT"] },
+            "e.g. Calcichew D3",
+            { text: "Proposed Benefit:", sub: [
+              "Calcium \u2014 primary bone mineral; Vitamin D \u2014 facilitates Ca\u00b2\u207a absorption, regulates PTH",
+              "Together aim to reduce osteoporotic fracture risk"
+            ]},
+            { text: "Evidence:", sub: [
+              "Reasonable fracture reduction in deficient, institutionalised elderly [ref:23]",
+              "WHI: modest hip fracture reduction, but \u2191 renal stone risk [ref:24]",
+              "Vitamin D alone without deficiency \u2014 no fracture/fall benefit in large RCTs [ref:25] [ref:26]",
+              "Effect smaller than commonly assumed in replete community-dwelling adults"
+            ]},
+            { text: "Risks:", sub: [
+              "Hypercalcaemia, renal stones (esp. high-dose Ca\u00b2\u207a)",
+              "Constipation",
+              "Contested signal re: cardiovascular calcification with Ca\u00b2\u207a supplements [ref:27]"
+            ]}
+          ]
+        },
+        {
+          type: "management",
+          title: "Neurobion (B1 + B6 + B12)",
+          content: [
+            { text: "Evidence level:", sub: ["WEAK BEYOND DEFICIENCY"] },
+            "Thiamine / Pyridoxine / Cyanocobalamin",
+            { text: "Proposed Benefit:", sub: [
+              "B vitamins are cofactors in nerve myelination & repair",
+              "B12 deficiency \u2192 subacute combined degeneration",
+              "Marketed for peripheral neuropathy symptoms"
+            ]},
+            { text: "Evidence:", sub: [
+              "Clear benefit when correcting documented deficiency (B12 neuropathy, alcoholic B1 deficiency)",
+              "For diabetic/idiopathic neuropathy in replete patients \u2014 evidence weak [ref:28]",
+              "Positive trials are small, industry-sponsored, low methodological quality"
+            ]},
+            { text: "Risks:", sub: [
+              "Chronic high-dose B6 (>200mg/day) is itself neurotoxic \u2014 see Vitamin B6 section below [ref:29]",
+              "Standard Neurobion doses safe, but risk of patients self-escalating",
+              "B12 and B1 very safe"
+            ]}
+          ]
+        },
+        {
+          type: "management",
+          title: "Vitamin B6 (Pyridoxine)",
+          content: [
+            { text: "Evidence level:", sub: ["NARROW THERAPEUTIC WINDOW"] },
+            "Cofactor for >100 enzymatic reactions. Active form: PLP (pyridoxal 5\u2032-phosphate)",
+            { text: "Proposed Benefit:", sub: [
+              "Essential cofactor for neurotransmitter synthesis (serotonin, noradrenaline, GABA), amino acid metabolism, myelin formation, haemoglobin synthesis [ref:30]",
+              "Deficiency \u2192 peripheral neuropathy, anaemia, dermatitis, confusion, seizures",
+              "Supplemented for: isoniazid-induced neuropathy, pregnancy nausea, carpal tunnel syndrome, PMS"
+            ]},
+            { text: "Evidence:", sub: [
+              "Isoniazid neuropathy prophylaxis \u2014 well-established, standard of care [ref:31]",
+              "Nausea/vomiting in pregnancy \u2014 reasonable evidence, endorsed by ACOG [ref:32]",
+              "Carpal tunnel syndrome \u2014 weak/inconsistent; small trials only [ref:33]",
+              "General peripheral neuropathy (not deficiency-related): systematic review found no evidence supporting B6 monotherapy [ref:34]",
+              "Paradox: both deficiency and excess cause neuropathy \u2014 inactive pyridoxine competitively inhibits active PLP, so high-dose supplementation mimics deficiency [ref:35]"
+            ]},
+            { text: "Risks:", sub: [
+              "Neurotoxicity is the primary concern \u2014 sensory axonal neuropathy (stocking-glove), ataxia, disequilibrium [ref:35] [ref:29]",
+              "Classically at >200mg/day, but TGA found neuropathy at <50mg/day in some individuals \u2014 no safe minimum threshold established [ref:36]",
+              "Australia TGA now mandates warning labels on products with >10mg/day B6 [ref:36]",
+              "Risk compounded by multiple B6-containing products (multivitamin + B-complex + Mg/Zn supplements) [ref:37]",
+              "Usually reversible on cessation; delayed diagnosis can cause irreversible damage [ref:29]",
+              "High-dose pyridoxine may \u2193 phenytoin and phenobarbital levels [ref:30]"
+            ]}
+          ]
+        },
+        {
+          type: "management",
+          title: "Multivitamin (Daily One Plus)",
+          content: [
+            { text: "Evidence level:", sub: ["MARGINAL"] },
+            "Broad-spectrum micronutrient supplement",
+            { text: "Proposed Benefit:", sub: [
+              "Prevent subclinical deficiencies in poor intake / malabsorption / chronic illness"
+            ]},
+            { text: "Evidence:", sub: [
+              "PHS II, COSMOS: no meaningful \u2193 in CV events, cancer, or mortality [ref:38] [ref:39]",
+              "COSMOS-Mind: possible modest slowing of cognitive decline (replication needed) [ref:40]",
+              "Defensible mainly in genuinely at-risk groups (elderly poor intake, post-bariatric, restrictive diets)"
+            ]},
+            { text: "Risks:", sub: [
+              "Low risk at standard doses",
+              "False reassurance replacing dietary improvement",
+              "Excess vitamin A / E \u2014 safety signals in some populations [ref:41]"
+            ]}
+          ]
+        },
+        {
+          type: "subsection-header",
+          title: "OTC \u2014 Not in HA Formulary"
+        },
+        {
+          type: "management",
+          title: "Glucosamine & Chondroitin",
+          content: [
+            { text: "Evidence level:", sub: ["LARGELY NEGATIVE"] },
+            "GAG precursors \u2022 Oral",
+            { text: "Proposed Benefit:", sub: [
+              "Glycosaminoglycan precursors in cartilage matrix",
+              "Theory: oral supplementation supports cartilage repair, slows OA progression"
+            ]},
+            { text: "Evidence:", sub: [
+              "GAIT (n=1583): no significant benefit over placebo overall for knee OA pain [ref:42]",
+              "Moderate-severe subgroup showed possible combination benefit \u2014 post-hoc, not replicated [ref:42]",
+              "Industry-sponsored trials trend positive; independent trials trend null [ref:43]",
+              "AAOS, OARSI: weak/conditional recommendation against routine use [ref:44]"
+            ]},
+            { text: "Risks:", sub: [
+              "Generally well-tolerated; mild GI upset",
+              "Shellfish allergy concern (glucosamine sulphate; synthetic forms exist)",
+              "Theoretical warfarin interaction (chondroitin)"
+            ]}
+          ]
+        },
+        {
+          type: "management",
+          title: "Collagen Peptides",
+          content: [
+            { text: "Evidence level:", sub: ["PLAUSIBLE, UNPROVEN"] },
+            "Hydrolysed collagen \u2022 Oral",
+            { text: "Proposed Benefit:", sub: [
+              "Provides glycine, proline, hydroxyproline \u2014 proposed preferential uptake by cartilage",
+              "Stimulate chondrocyte collagen synthesis"
+            ]},
+            { text: "Evidence:", sub: [
+              "Small RCTs: modest improvement in joint pain (esp. athletes) and skin elasticity [ref:45]",
+              "Labelled hydroxyproline does reach joint tissue (mechanistic support) [ref:46]",
+              "Trial quality low, small n, industry-funded, modest effect sizes",
+              "Unresolved: does ingested collagen confer benefit beyond adequate total protein intake?"
+            ]},
+            { text: "Risks:", sub: [
+              "Very low risk; mild GI symptoms",
+              "Marine-sourced products: possible heavy metal contamination (Pb, Cd) depending on QC"
+            ]}
+          ]
+        },
+        {
+          type: "management",
+          title: "UC-II (Undenatured Type II Collagen)",
+          content: [
+            { text: "Evidence level:", sub: ["PROMISING, SMALL BASE"] },
+            "40mg/day \u2022 Oral tolerance mechanism",
+            { text: "Proposed Benefit:", sub: [
+              "Distinct from hydrolysed collagen \u2014 works via oral tolerance",
+              "Type II collagen epitopes presented to gut-associated lymphoid tissue (Peyer\u2019s patches)",
+              "Downregulates T-cell mediated inflammatory attack on joint cartilage",
+              "Immunomodulatory signal, not structural building block"
+            ]},
+            { text: "Evidence:", sub: [
+              "Superior pain reduction vs placebo and vs glucosamine + chondroitin in knee OA [ref:47] [ref:48]",
+              "Oral tolerance mechanism is immunologically plausible (established in other autoimmune contexts)",
+              "Evidence base remains small, largely single-sponsor (InterHealth/Lonza)",
+              "Independent replication limited"
+            ]},
+            { text: "Risks:", sub: [
+              "Very well-tolerated in trials",
+              "Theoretical concern re: immune modulation in patients with other autoimmune conditions (no signal yet)"
+            ]}
+          ]
+        },
+        {
+          type: "management",
+          title: "Omega-3 Fish Oil (EPA/DHA)",
+          content: [
+            { text: "Evidence level:", sub: ["DOSE & FORM DEPENDENT"] },
+            "Standard supplements vs pharmaceutical-grade EPA",
+            { text: "Proposed Benefit:", sub: [
+              "EPA/DHA \u2192 resolvins & protectins that actively resolve inflammation",
+              "Proposed: CV risk reduction, anti-inflammatory for joints, neuroprotection"
+            ]},
+            { text: "Evidence:", sub: [
+              "REDUCE-IT (n=8179): 25% relative \u2193 in MACE with high-dose pure EPA (icosapent ethyl 4g/day) \u2014 pharmaceutical grade, not standard fish oil [ref:49]",
+              "STRENGTH, VITAL (mixed EPA/DHA supplements): no significant CV benefit [ref:50] [ref:51]",
+              "RA: some small trials show modest \u2193 NSAID use, \u2193 morning stiffness; OA evidence weak [ref:52]",
+              "Neuroprotection: large trials (VITAL-Cognition, LipiDiDiet) largely disappointing [ref:53]",
+              "Notable gap between interesting biology and null clinical trial results"
+            ]},
+            { text: "Risks:", sub: [
+              "GI upset, fishy aftertaste",
+              "AF signal in several mega-trials at high doses (REDUCE-IT, STRENGTH) \u2014 real and increasingly recognised [ref:49] [ref:50]",
+              "Oxidation / rancidity in poorly stored products"
+            ]}
+          ]
+        },
+        {
+          type: "note",
+          title: "Bottom Line",
+          defaultOpen: true,
+          content: [
+            { text: "Supplements with the clearest evidence are those correcting a documented deficiency (B12 for neuropathy, Ca\u00b2\u207a/D for deficient osteoporotic patients). Beyond deficiency correction, the evidence base thins dramatically for almost all of these. The commercial supplement industry substantially outpaces the evidence.", highlight: true }
+          ]
+        }
+      ]
+    },
+
+    {
       id: "implants",
       title: "Implants",
       category: "common-issues",
@@ -1678,6 +1892,37 @@ const GUIDE_DATA = {
     "Fung PL, Cheung HN, Chung M, et al. Medication-related osteonecrosis of the jaw associated with bisphosphonates and denosumab. J Oral Maxillofac Surg. 2017;76(5):e23.",
     "Osteoporosis Society of Hong Kong (OSHK). Guideline for Clinical Management of Postmenopausal Osteoporosis in Hong Kong. 2024.",
     "AO Foundation. AO Surgery Reference \u2013 Fracture rehabilitation principles. Available at: https://surgeryreference.aofoundation.org/",
-    "Oxford University Hospitals & University Hospitals Sussex, NHS Foundation Trust. Patient information \u2013 Distal radius fracture rehabilitation."
+    "Oxford University Hospitals & University Hospitals Sussex, NHS Foundation Trust. Patient information \u2013 Distal radius fracture rehabilitation.",
+    "Chapuy MC et al. Vitamin D3 and calcium to prevent hip fractures in elderly women. N Engl J Med. 1992;327:1637-42.",
+    "Jackson RD et al. Calcium plus vitamin D supplementation and the risk of fractures. N Engl J Med. 2006;354:669-83. (WHI)",
+    "Manson JE et al. Vitamin D supplements and prevention of cancer and cardiovascular disease. N Engl J Med. 2019;380:33-44. (VITAL)",
+    "Waterhouse M et al. Vitamin D and health outcomes: umbrella review (D-Health). Lancet Diabetes Endocrinol. 2022;10:120-8.",
+    "Bolland MJ et al. Vascular events in healthy older women receiving calcium supplementation. BMJ. 2008;336:262-6.",
+    "Jayabalan B, Low LL. Vitamin B supplementation for diabetic peripheral neuropathy. Singapore Med J. 2016;57:55-9.",
+    "Schaumburg H et al. Sensory neuropathy from pyridoxine abuse: a new megavitamin syndrome. N Engl J Med. 1983;309:445-8.",
+    "Expert consensus on vitamin B6 therapeutic use for patients. Drug Des Devel Ther. 2025;19:4119-32.",
+    "Snider DE. Pyridoxine supplementation during isoniazid therapy. Tubercle. 1980;61:191-6.",
+    "ACOG Practice Bulletin No. 189: Nausea and vomiting of pregnancy. Obstet Gynecol. 2018;131:e15-30.",
+    "Talebi M et al. Effects of vitamin B6 on CTS: a systematic review. Adv Biomed Res. 2013;2:12.",
+    "Giannopoulos S et al. The role of vitamin B6 in peripheral neuropathy: a systematic review. Nutrients. 2023;15:2823.",
+    "Vrolijk MF et al. Vitamin B-6-induced neuropathy: exploring the mechanisms of pyridoxine toxicity. Adv Nutr. 2023;14:1421-36.",
+    "TGA Safety Update: Peripheral neuropathy with supplementary vitamin B6. Therapeutic Goods Administration (Australia), 2022.",
+    "Podg\u00f3rska A et al. Underestimated pyridoxine consumption and neurotoxicity. Rheumatol Int. 2025. DOI: 10.1007/s00296-025-05834-w",
+    "Sesso HD et al. Multivitamins in the prevention of cardiovascular disease in men: PHS II. JAMA. 2012;308:1751-60.",
+    "Sesso HD et al. Effect of cocoa flavanol supplementation and multivitamin on CV events: COSMOS. Am J Clin Nutr. 2022;115:1501-10.",
+    "Baker LD et al. Effects of cocoa extract and multivitamin on cognitive function: COSMOS-Mind. Alzheimers Dement. 2023;19:1308-19.",
+    "Miller ER et al. Meta-analysis: high-dosage vitamin E supplementation may increase all-cause mortality. Ann Intern Med. 2005;142:37-46.",
+    "Clegg DO et al. Glucosamine, chondroitin sulfate, and the two in combination for painful knee osteoarthritis. N Engl J Med. 2006;354:795-808. (GAIT)",
+    "Wandel S et al. Effects of glucosamine, chondroitin, or placebo in patients with OA: network meta-analysis. BMJ. 2010;341:c4675.",
+    "AAOS Clinical Practice Guideline: Treatment of Osteoarthritis of the Knee, 3rd ed. 2021.",
+    "Clark KL et al. 24-week study on the use of collagen hydrolysate as a dietary supplement in athletes with activity-related joint pain. Curr Med Res Opin. 2008;24:1485-96.",
+    "Oesser S et al. Oral administration of 14C-labelled gelatin hydrolysate leads to an accumulation of radioactivity in cartilage. J Nutr. 1999;129:1891-5.",
+    "Crowley DC et al. Safety and efficacy of undenatured type II collagen in the treatment of OA of the knee. Int J Med Sci. 2009;6:312-21.",
+    "Lugo JP et al. Efficacy and tolerability of an undenatured type II collagen supplement in modulating knee OA symptoms. Int J Med Sci. 2016;13:169-78.",
+    "Bhatt DL et al. Cardiovascular risk reduction with icosapent ethyl for hypertriglyceridemia. N Engl J Med. 2019;380:11-22. (REDUCE-IT)",
+    "Nicholls SJ et al. Effect of high-dose omega-3 fatty acids vs corn oil on major adverse cardiovascular events: STRENGTH. JAMA. 2020;324:2268-80.",
+    "Manson JE et al. Marine n-3 fatty acids and prevention of cardiovascular disease and cancer. N Engl J Med. 2019;380:23-32. (VITAL)",
+    "Goldberg RJ, Katz J. A meta-analysis of the analgesic effects of omega-3 PUFAs in inflammatory joint pain. Pain. 2007;129:210-23.",
+    "Soininen H et al. 36-month LipiDiDiet multinutrient RCT in prodromal Alzheimer\u2019s disease. Alzheimers Dement. 2021;17:29-40."
   ]
 };
