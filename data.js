@@ -81,7 +81,10 @@ const GUIDE_DATA = {
       title: "Rehabilitation",
       description: "Fracture rehabilitation and post-operative protocols",
       sections: [
-        "fracture-rehab",
+        "fracture-rehab-general",
+        "fracture-rehab-upper",
+        "fracture-rehab-lower",
+        "fracture-rehab-spine",
         "post-op-protocols"
       ]
     }
@@ -131,14 +134,14 @@ const GUIDE_DATA = {
           content: [
             "Beyond 8 weeks post-injury, fracture consolidation may be expected and therapy can be intensified.",
             "Given no complicating factors, the fracture may undergo remodelling for up to 1\u20132 years post-injury. Follow-up can be arranged at successively longer intervals.",
-            "The follow-up interval will also depend on other patient factors, such as whether sick leave needs to be continued.",
-            "Refer to the Implants section for implant-related issues."
+            "The follow-up interval will also depend on other patient factors, such as whether [link:sick-leave|sick leave] needs to be continued.",
+            "Refer to the [link:implants|Implants] section for implant-related issues."
           ]
         },
         {
           type: "section-link",
-          targetId: "fracture-rehab",
-          label: "Fracture Rehabilitation"
+          targetId: "fracture-rehab-general",
+          label: "Rehabilitation"
         }
       ]
     },
@@ -1107,10 +1110,15 @@ const GUIDE_DATA = {
           type: "management",
           title: "Removal of Implants",
           content: [
-            "Unless there are implant complications (breakage, loosening, skin impingement) or unless specified in the rehabilitation plan, there is no absolute indication to remove implants, with a few exceptions:",
-            "Syndesmosis screws for ankle fractures should be arranged for removal under LA before the patient begins to weight-bear.",
-            "Protection wiring (e.g. partial patellectomies) is removed under RA/SA/GA at around 3 months post-operatively.",
-            "Spinal burst fractures (fixed without fusion) are removed under GA at around 1 year post-operatively.",
+            { text: "Unless there are implant complications (breakage, loosening, skin impingement) or unless specified in the rehabilitation plan, there is no absolute indication to remove implants, with a few **exceptions**:",
+              sub: [
+                "Syndesmosis screws for ankle fractures should be arranged for removal under LA before the patient begins to weight-bear.",
+                "Protection wiring (e.g. partial patellectomies) is removed under RA/SA/GA at around 3 months post-operatively.",
+                "Spinal burst fractures (fixed without fusion) are removed under GA at around 1 year post-operatively.",
+                "Hook plates for ACJ dislocation is removed under GA at 4\u20136 months post-op.",
+                "Lisfranc joint fractures (fixed without fusion) are removed under RA/SA/GA 4\u20136 months post-op."
+              ]
+            },
             {
               text: "If patients opt to remove implants, this can be arranged when the fracture has fully consolidated, generally not before:",
               sub: [
@@ -1241,11 +1249,10 @@ const GUIDE_DATA = {
     },
 
     {
-      id: "fracture-rehab",
-      title: "Fracture Rehabilitation",
+      id: "fracture-rehab-general",
+      title: "General Principles",
       category: "rehabilitation",
-      tags: ["rehabilitation", "weight-bearing", "ROM", "mobilisation", "fracture healing", "upper limb", "lower limb", "spine", "orthosis", "brace", "TLSO", "collar"],
-      children: ["fracture-rehab-upper", "fracture-rehab-lower", "fracture-rehab-spine"],
+      tags: ["rehabilitation", "weight-bearing", "ROM", "mobilisation", "fracture healing", "general principles"],
       blocks: [
         {
           type: "note",
@@ -1270,7 +1277,6 @@ const GUIDE_DATA = {
       id: "fracture-rehab-upper",
       title: "Upper Limb Fractures",
       category: "rehabilitation",
-      parent: "fracture-rehab",
       tags: ["upper limb", "shoulder", "elbow", "wrist", "humerus", "radius", "ROM", "stiffness"],
       blocks: [
         {
@@ -1312,7 +1318,6 @@ const GUIDE_DATA = {
       id: "fracture-rehab-lower",
       title: "Lower Limb Fractures",
       category: "rehabilitation",
-      parent: "fracture-rehab",
       tags: ["lower limb", "hip", "knee", "ankle", "weight-bearing", "NWB", "FWB", "ambulation"],
       blocks: [
         {
@@ -1381,7 +1386,6 @@ const GUIDE_DATA = {
       id: "fracture-rehab-spine",
       title: "Spinal Fractures",
       category: "rehabilitation",
-      parent: "fracture-rehab",
       tags: ["spine", "spinal", "cervical", "thoracic", "lumbar", "TLSO", "collar", "brace", "orthosis"],
       blocks: [
         {
