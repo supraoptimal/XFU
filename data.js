@@ -1539,7 +1539,8 @@ const GUIDE_DATA = {
             { label: "Atypical femoral fracture (AFF)", cells: ["Alendronate, Denosumab", "~1/100,000 to 5/10,000; risk rises with duration"] },
             { label: "Transient hypercalcaemia", cells: ["Teriparatide", "Usually mild and self-limiting"] },
             { label: "Osteosarcoma (theoretical)", cells: ["Teriparatide", "Seen in rats at high doses; avoid in Paget\u2019s disease"] }
-          ]
+          ],
+          source: "Fung et al. 2017 [ref:19]; OSHK 2024 Guideline [ref:20]"
         },
         {
           type: "management",
