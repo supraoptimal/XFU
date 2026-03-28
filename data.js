@@ -81,11 +81,29 @@ const GUIDE_DATA = {
       title: "Rehabilitation",
       description: "Fracture rehabilitation and post-operative protocols",
       sections: [
-        "fracture-rehab-general",
         "fracture-rehab-upper",
         "fracture-rehab-lower",
         "fracture-rehab-spine",
         "post-op-protocols"
+      ],
+      inlineBlocks: [
+        {
+          type: "note",
+          title: "General Principles (Fractures)",
+          defaultOpen: false,
+          content: [
+            { text: "Rehabilitation progression should not be based on timing alone.", highlight: true },
+            {
+              text: "Assess the following at each review:",
+              sub: [
+                "**Injury factors** \u2013 fracture pattern, location, displacement, treatment method (cast vs. fixation)",
+                "**Patient factors** \u2013 age, compliance, comorbidities",
+                "**Clinical progress** \u2013 pain, tenderness, swelling, functional improvement",
+                "Radiological progress \u2013 alignment maintained, implant position, evidence of union"
+              ]
+            }
+          ]
+        }
       ]
     }
   ],
@@ -140,7 +158,8 @@ const GUIDE_DATA = {
         },
         {
           type: "section-link",
-          targetId: "fracture-rehab-general",
+          targetId: "rehabilitation",
+          targetType: "category",
           label: "Rehabilitation"
         }
       ]
@@ -1110,15 +1129,18 @@ const GUIDE_DATA = {
           type: "management",
           title: "Removal of Implants",
           content: [
-            { text: "Unless there are implant complications (breakage, loosening, skin impingement) or unless specified in the rehabilitation plan, there is no absolute indication to remove implants, with a few **exceptions**:",
-              sub: [
-                "Syndesmosis screws for ankle fractures should be arranged for removal under LA before the patient begins to weight-bear.",
-                "Protection wiring (e.g. partial patellectomies) is removed under RA/SA/GA at around 3 months post-operatively.",
-                "Spinal burst fractures (fixed without fusion) are removed under GA at around 1 year post-operatively.",
-                "Hook plates for ACJ dislocation is removed under GA at 4\u20136 months post-op.",
-                "Lisfranc joint fractures (fixed without fusion) are removed under RA/SA/GA 4\u20136 months post-op."
-              ]
-            },
+            "Unless there are implant complications (breakage, loosening, skin impingement) or unless specified in the rehabilitation plan, there is no absolute indication to remove implants, with a few **exceptions**:"
+          ],
+          callout: {
+            items: [
+              "Syndesmosis screws for ankle fractures should be arranged for removal under LA before the patient begins to weight-bear.",
+              "Protection wiring (e.g. partial patellectomies) is removed under RA/SA/GA at around 3 months post-operatively.",
+              "Spinal burst fractures (fixed without fusion) are removed under GA at around 1 year post-operatively.",
+              "Hook plates for ACJ dislocation is removed under GA at 4\u20136 months post-op.",
+              "Lisfranc joint fractures (fixed without fusion) are removed under RA/SA/GA 4\u20136 months post-op."
+            ]
+          },
+          contentAfterCallout: [
             {
               text: "If patients opt to remove implants, this can be arranged when the fracture has fully consolidated, generally not before:",
               sub: [
@@ -1248,31 +1270,6 @@ const GUIDE_DATA = {
       ]
     },
 
-    {
-      id: "fracture-rehab-general",
-      title: "General Principles",
-      category: "rehabilitation",
-      tags: ["rehabilitation", "weight-bearing", "ROM", "mobilisation", "fracture healing", "general principles"],
-      blocks: [
-        {
-          type: "note",
-          title: "General Principles",
-          defaultOpen: true,
-          content: [
-            { text: "Rehabilitation progression should not be based on timing alone.", highlight: true },
-            {
-              text: "Assess the following at each review:",
-              sub: [
-                "Injury factors \u2013 fracture pattern, location, displacement, treatment method (cast vs. fixation)",
-                "Patient factors \u2013 age, compliance, comorbidities",
-                "Clinical progress \u2013 pain, tenderness, swelling, functional improvement",
-                "Radiological progress \u2013 alignment maintained, implant position, evidence of union"
-              ]
-            }
-          ]
-        }
-      ]
-    },
     {
       id: "fracture-rehab-upper",
       title: "Upper Limb Fractures",

@@ -618,7 +618,8 @@
         return (
           <button
             onClick={() => {
-              const evt = new CustomEvent('navigate-section', { detail: block.targetId });
+              const viewType = block.targetType === 'category' ? 'category' : 'section';
+              const evt = new CustomEvent('navigate-section', { detail: { id: block.targetId, type: viewType } });
               window.dispatchEvent(evt);
             }}
             className="mt-3 mb-3 w-full flex items-center justify-between px-4 py-3 bg-blue-50 border border-blue-200 rounded-lg text-sm font-semibold text-blue-700 hover:bg-blue-100 transition-colors min-h-[44px]"
@@ -647,12 +648,13 @@
                 {block.callout.items.map((item, ci) => (
                   <li key={ci} className="flex items-start gap-2 text-sm text-yellow-900 font-medium">
                     <span className="mt-0.5 text-yellow-600">•</span>
-                    <span>{item}</span>
+                    <span><RichText text={item} onRefClick={onRefClick} onNavigate={onNavigate} /></span>
                   </li>
                 ))}
               </ul>
             </div>
           )}
+          {block.contentAfterCallout && <ContentList items={block.contentAfterCallout} onRefClick={onRefClick} onNavigate={onNavigate} noBoldColon={noBoldColon} />}
         </CollapsibleBlock>
       );
     }
@@ -774,8 +776,8 @@
             <p className="text-sm font-semibold text-gray-700">XFU — A Practical Reference for Junior Residents</p>
             <p className="text-xs text-gray-500">Author: Dr Gene Leung</p>
             <p className="text-xs text-gray-500">Version: 1.0</p>
-            <p className="text-xs text-gray-500">References reviewed: March 2026</p>
-            <p className="text-xs text-gray-500">Last updated: March 2026</p>
+            <p className="text-xs text-gray-500">Created: March 2026</p>
+            <p className="text-xs text-gray-500">Last updated: 28 March 2026</p>
             <p className="text-xs text-gray-400 mt-2 italic">Independent educational reference tool</p>
           </div>
 
@@ -785,7 +787,7 @@
     }
 
     // --- Category View ---
-    function CategoryView({ categoryId, onNavigate }) {
+    function CategoryView({ categoryId, onNavigate, onRefClick }) {
       const category = GUIDE_DATA.categories.find(c => c.id === categoryId);
       if (!category) return <div className="p-4">Category not found.</div>;
 
@@ -802,6 +804,10 @@
               <p className="text-xs text-gray-500">{category.description}</p>
             </div>
           </div>
+
+          {category.inlineBlocks && category.inlineBlocks.map((block, i) => (
+            <BlockRenderer key={'ib-'+i} block={block} onRefClick={onRefClick} onNavigate={onNavigate} />
+          ))}
 
           <div className="space-y-2">
             {category.groups ? (
@@ -1000,7 +1006,13 @@
       }, [history]);
 
       useEffect(() => {
-        const handler = (e) => navigate('section', e.detail);
+        const handler = (e) => {
+          if (typeof e.detail === 'object' && e.detail.type) {
+            navigate(e.detail.type, e.detail.id);
+          } else {
+            navigate('section', e.detail);
+          }
+        };
         window.addEventListener('navigate-section', handler);
         return () => window.removeEventListener('navigate-section', handler);
       }, [navigate]);
@@ -1090,7 +1102,7 @@
             ) : view === 'home' ? (
               <HomeView onNavigate={navigate} />
             ) : view === 'category' ? (
-              <CategoryView categoryId={viewId} onNavigate={navigate} />
+              <CategoryView categoryId={viewId} onNavigate={navigate} onRefClick={handleRefClick} />
             ) : view === 'section' ? (
               <SectionView sectionId={viewId} onRefClick={handleRefClick} onNavigate={navigate} />
             ) : null}
